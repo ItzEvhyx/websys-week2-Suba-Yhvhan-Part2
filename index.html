@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
     :root {
       --orange:      #e07800;
       --orange-dark: #c45a00;
@@ -16,25 +16,25 @@
       --border:      2.5px solid #e07800;
       --radius:      18px;
     }
-
+ 
     html {
       scroll-behavior: smooth;
     }
-
+ 
     body {
       font-family: 'Fredoka', sans-serif;
       background-color: var(--page-bg);
       color: var(--orange-dark);
       min-height: 100vh;
     }
-
+ 
     .profile-banner {
       position: relative;
       width: 100%;
       height: 40vh;
       min-height: 280px;
     }
-
+ 
     .profile-banner img.wallpaper {
       width: 100%;
       height: 100%;
@@ -42,7 +42,7 @@
       object-position: center;
       display: block;
     }
-
+ 
     .profile-avatar-wrap {
       position: absolute;
       bottom: 0;
@@ -50,7 +50,7 @@
       transform: translateY(50%);
       z-index: 10;
     }
-
+ 
     .profile-avatar-wrap img {
       width: 220px;
       height: 220px;
@@ -60,7 +60,7 @@
       border: 6px solid var(--page-bg);
       display: block;
     }
-
+ 
     nav {
       position: absolute;
       top: 18px;
@@ -74,30 +74,30 @@
       align-items: center;
       background: var(--card-bg);
     }
-
+ 
     nav .nav-home {
       font-size: 1.6rem;
       font-weight: 700;
-      color: var(--orange-dark);
+      color: #F97316;
       text-decoration: none;
       margin-right: auto;
     }
-
+ 
     nav ul {
       list-style: none;
       display: flex;
       gap: 52px;
     }
-
+ 
     nav ul li a {
       text-decoration: none;
-      color: var(--orange-dark);
+      color: #F97316;
       font-size: 1.35rem;
       font-weight: 500;
     }
-
+ 
     nav ul li a:hover { opacity: .7; }
-
+ 
     .profile-identity {
       padding: 14px 32px 0 280px;
       display: flex;
@@ -105,14 +105,14 @@
       justify-content: space-between;
       min-height: 120px;
     }
-
+ 
     .name-block h1 {
       font-size: 2.8rem;
       font-weight: 700;
-      color: var(--orange);
+       color: #F97316;
       line-height: 1.1;
     }
-
+ 
     .name-block p {
       font-size: 1.1rem;
       font-weight: 500;
@@ -120,7 +120,7 @@
       text-align: center;
       margin-top: 6px;
     }
-
+ 
     .tagline-box {
       border: var(--border);
       border-radius: var(--radius);
@@ -128,39 +128,47 @@
       padding: 20px 30px;
       font-size: 1.2rem;
       font-weight: 600;
-      color: var(--orange-dark);
+      color: #F97316;
       text-align: center;
       flex: 1;
       margin-left: 32px;
       line-height: 1.5;
     }
-
+ 
     .main-content {
       padding: 24px 22px 36px;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
-
+ 
     .card {
       border: var(--border);
       border-radius: var(--radius);
       background: var(--card-bg);
       padding: 28px 32px;
     }
-
+ 
     .card h2 {
       font-size: 1.6rem;
       font-weight: 700;
       color: var(--orange-dark);
       margin-bottom: 18px;
     }
-
+ 
+    .card-about h2,
+    .card-hobbies h2,
+    .card-websites h2,
+    #contact h2,
+    .card-footer h2 {
+      color: #F97316;
+    }
+ 
     .row {
       display: flex;
       gap: 20px;
     }
-
+ 
     .card-about { flex: 1.4; }
     .card-about p {
       font-size: 1.15rem;
@@ -171,7 +179,7 @@
       margin-bottom: 18px;
     }
     .card-about p:last-child { margin-bottom: 0; }
-
+ 
     .card-hobbies { flex: 1; }
     .card-hobbies ul { list-style: none; }
     .card-hobbies ul li {
@@ -181,7 +189,7 @@
       color: var(--orange-dark);
     }
     .card-hobbies ul li::before { content: "• "; font-weight: 700; }
-
+ 
     .card-websites { flex: 1; }
     .card-websites ol {
       list-style: decimal;
@@ -195,14 +203,14 @@
     }
     .card-websites ol li a { color: var(--orange-dark); text-decoration: none; }
     .card-websites ol li a:hover { text-decoration: underline; }
-
+ 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       margin-top: 8px;
     }
-
+ 
     .contact-col h3 {
       font-size: 1.15rem;
       font-weight: 700;
@@ -210,7 +218,7 @@
       margin-bottom: 12px;
       text-align: center;
     }
-
+ 
     .contact-col ul { list-style: none; }
     .contact-col ul li {
       font-size: 1rem;
@@ -221,7 +229,7 @@
     .contact-col ul li::before { content: "• "; }
     .contact-col ul li a { color: var(--orange-dark); text-decoration: none; }
     .contact-col ul li a:hover { text-decoration: underline; }
-
+ 
     .card-footer .footer-tagline {
       text-align: center;
       font-size: 1.8rem;
@@ -229,13 +237,233 @@
       color: var(--orange);
       margin-top: 12px;
     }
+ 
+    /* Chat Button */
+    .chat-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+      background: white;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+ 
+    .chat-btn:hover {
+      transform: scale(1.1);
+    }
+ 
+    .chat-btn img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+ 
+    /* Modal */
+    .chat-modal {
+      position: fixed;
+      bottom: 130px;
+      right: 30px;
+      width: 380px;
+      height: 600px;
+      z-index: 999;
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+ 
+    .chat-modal.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+ 
+    .chat-modal-content {
+      background: white;
+      border-radius: 16px;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+ 
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+ 
+    @media (max-width: 480px) {
+      .chat-modal-content {
+        width: calc(100% - 20px);
+        height: 500px;
+      }
+    }
+ 
+    /* Chatbox Styles */
+    .chatbox-container {
+      width: 100%;
+      height: 100%;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+ 
+    .chatbox-header {
+      background: #F97316;
+      color: white;
+      padding: 20px;
+      border-radius: 16px 16px 0 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+ 
+    .chatbox-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+ 
+    .chatbox-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #f9f9f9;
+    }
+ 
+    .message {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+ 
+    .message.user {
+      justify-content: flex-end;
+    }
+ 
+    .message-bubble {
+      max-width: 70%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+ 
+    .message.bot .message-bubble {
+      background: white;
+      border: 2.5px solid #F97316;
+      color: var(--orange-dark);
+    }
+ 
+    .message.user .message-bubble {
+      background: #F97316;
+      color: white;
+      border-radius: 12px;
+    }
+ 
+    .message-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #F97316;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+ 
+    .message-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+ 
+    .chatbox-input-area {
+      padding: 16px;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      gap: 8px;
+      background: white;
+      border-radius: 0 0 16px 16px;
+    }
+ 
+    .chatbox-input {
+      flex: 1;
+      border: 2.5px solid #F97316;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-family: 'Fredoka', sans-serif;
+      color: var(--orange-dark);
+      outline: none;
+    }
+ 
+    .chatbox-input::placeholder {
+      color: #ccc;
+    }
+ 
+    .chatbox-input:focus {
+      border-color: #e07800;
+    }
+ 
+    .chatbox-send-btn {
+      width: 48px;
+      height: 48px;
+      border: none;
+      background: #F97316;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+ 
+    .chatbox-send-btn:hover {
+      background: #e07800;
+    }
+ 
+    .chatbox-send-btn::after {
+      content: "➤";
+      font-size: 1.4rem;
+      color: white;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-
+ 
   <div class="profile-banner" id="home">
     <img class="wallpaper" src="assets/framework_wallpaper.png" alt="banner"/>
-
+ 
     <nav>
       <a href="#home" class="nav-home">Home</a>
       <ul>
@@ -245,12 +473,12 @@
         <li><a href="#contact">Contacts</a></li>
       </ul>
     </nav>
-
+ 
     <div class="profile-avatar-wrap">
       <img src="assets/profile_pic_icon.png" alt="Yhvhan Suba"/>
     </div>
   </div>
-
+ 
   <div class="profile-identity">
     <div class="name-block">
       <h1>Yhvhan Suba</h1>
@@ -260,9 +488,9 @@
       Building the future, one line of code at a time.
     </div>
   </div>
-
+ 
   <div class="main-content">
-
+ 
     <div class="row">
       <div id="about" class="card card-about">
         <h2>About me</h2>
@@ -290,7 +518,7 @@
         </ul>
       </div>
     </div>
-
+ 
     <div class="row">
       <div id="websites" class="card card-websites" style="flex:1;">
         <h2>Favourite Websites</h2>
@@ -302,7 +530,7 @@
         </ol>
       </div>
     </div>
-
+ 
     <div id="contact" class="card">
       <h2>Contact section</h2>
       <div class="contact-grid">
@@ -337,13 +565,110 @@
         </div>
       </div>
     </div>
-
+ 
     <div class="card card-footer">
       <h2>Footer</h2>
       <p class="footer-tagline">"Functionality meets Creativity"</p>
     </div>
-
+ 
   </div>
+ 
+  <button class="chat-btn" id="chatBtn">
+    <img src="assets/cat_loader_icon.png" alt="Chat"/>
+  </button>
+ 
+  <div class="chat-modal" id="chatModal">
+    <div class="chat-modal-content" id="chatModalContent"></div>
+  </div>
+ 
+  <script>
+    const chatBtn = document.getElementById('chatBtn');
+    const chatModal = document.getElementById('chatModal');
+    const chatModalContent = document.getElementById('chatModalContent');
+    let messageboxLoaded = false;
+    let chatboxOpen = false;
+ 
+    chatBtn.addEventListener('click', async () => {
+      if (chatboxOpen) {
+       
+        chatModal.classList.remove('active');
+        chatboxOpen = false;
+      } else {
+      
+        chatModal.classList.add('active');
+        chatboxOpen = true;
+       
+        if (!messageboxLoaded) {
+          try {
+            const response = await fetch('message_box.html');
+            const html = await response.text();
+           
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const chatboxContainer = doc.querySelector('.chatbox-container');
+           
+            if (chatboxContainer) {
+              chatModalContent.innerHTML = chatboxContainer.innerHTML;
+              messageboxLoaded = true;
+              attachChatListeners();
+            }
+          } catch (error) {
+            console.error('Error loading chatbox:', error);
+            chatModalContent.innerHTML = '<p>Error loading chat. Please try again.</p>';
+          }
+        } else {
+          attachChatListeners();
+        }
+      }
+    });
+ 
+    function attachChatListeners() {
+      const messageInput = chatModalContent.querySelector('#messageInput');
+      const sendBtn = chatModalContent.querySelector('#sendBtn');
+      const chatMessages = chatModalContent.querySelector('#chatMessages');
+ 
+      if (!messageInput || !sendBtn || !chatMessages) return;
+ 
+      function sendMessage() {
+        const message = messageInput.value.trim();
+       
+        if (message !== '') {
+         
+          const userMessageDiv = document.createElement('div');
+          userMessageDiv.className = 'message user';
+          userMessageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
+          chatMessages.appendChild(userMessageDiv);
+ 
+          messageInput.value = '';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+ 
+          
+          setTimeout(() => {
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.className = 'message bot';
+            botMessageDiv.innerHTML = `
+              <div class="message-avatar">
+                <img src="assets/profile_pic_icon.png" alt="Yhvhan"/>
+              </div>
+              <div class="message-bubble">Thanks for your message! I'll get back to you soon.</div>
+            `;
+            chatMessages.appendChild(botMessageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 600);
+        }
+      }
 
+      sendBtn.addEventListener('click', sendMessage);
+ 
+      messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+ 
+      messageInput.focus();
+    }
+  </script>
+ 
 </body>
 </html>

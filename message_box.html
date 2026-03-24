@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Message Yhvhan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+    :root {
+      --orange:      #e07800;
+      --orange-dark: #c45a00;
+      --card-bg:     #fffaf0;
+      --page-bg:     #FFEECF;
+      --border:      2.5px solid #e07800;
+      --radius:      18px;
+    }
+ 
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background-color: var(--page-bg);
+      color: var(--orange-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+ 
+    .chatbox-container {
+      width: 380px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+ 
+    .chatbox-header {
+      background: #F97316;
+      color: white;
+      padding: 20px;
+      border-radius: 16px 16px 0 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+ 
+    .chatbox-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+ 
+    .chatbox-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #f9f9f9;
+    }
+ 
+    .message {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+ 
+    .message.user {
+      justify-content: flex-end;
+    }
+ 
+    .message-bubble {
+      max-width: 70%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+ 
+    .message.bot .message-bubble {
+      background: white;
+      border: 2.5px solid #F97316;
+      color: var(--orange-dark);
+    }
+ 
+    .message.user .message-bubble {
+      background: #F97316;
+      color: white;
+      border-radius: 12px;
+    }
+ 
+    .message-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #F97316;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+ 
+    .message-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+ 
+    .chatbox-input-area {
+      padding: 16px;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      gap: 8px;
+      background: white;
+      border-radius: 0 0 16px 16px;
+    }
+ 
+    .chatbox-input {
+      flex: 1;
+      border: 2.5px solid #F97316;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-family: 'Fredoka', sans-serif;
+      color: var(--orange-dark);
+      outline: none;
+    }
+ 
+    .chatbox-input::placeholder {
+      color: #ccc;
+    }
+ 
+    .chatbox-input:focus {
+      border-color: #e07800;
+    }
+ 
+    .chatbox-send-btn {
+      width: 48px;
+      height: 48px;
+      border: none;
+      background: #F97316;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+ 
+    .chatbox-send-btn:hover {
+      background: #e07800;
+    }
+ 
+    .chatbox-send-btn::after {
+      content: "➤";
+      font-size: 1.4rem;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+ 
+  <div class="chatbox-container">
+    <div class="chatbox-header">
+      <img src="assets/profile_pic_icon.png" alt="Yhvhan"/>
+      <span>Message Yhvhan</span>
+    </div>
+    <div class="chatbox-messages" id="chatMessages">
+      <div class="message bot">
+        <div class="message-avatar">
+          <img src="assets/profile_pic_icon.png" alt="Yhvhan"/>
+        </div>
+        <div class="message-bubble">Hi! Feel free to message me with any concern</div>
+      </div>
+    </div>
+    <div class="chatbox-input-area">
+      <input
+        type="text"
+        class="chatbox-input"
+        id="messageInput"
+        placeholder="Send Message"
+      />
+      <button class="chatbox-send-btn" id="sendBtn"></button>
+    </div>
+  </div>
+ 
+  <script>
+    const messageInput = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatMessages = document.getElementById('chatMessages');
+
+    function sendMessage() {
+      const message = messageInput.value.trim();
+     
+      if (message !== '') {
+        const userMessageDiv = document.createElement('div');
+        userMessageDiv.className = 'message user';
+        userMessageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
+        chatMessages.appendChild(userMessageDiv);
+
+        setTimeout(() => {
+          const botMessageDiv = document.createElement('div');
+          botMessageDiv.className = 'message bot';
+          botMessageDiv.innerHTML = `
+            <div class="message-avatar">
+              <img src="assets/profile_pic_icon.png" alt="Yhvhan"/>
+            </div>
+            <div class="message-bubble">Thanks for your message! I'll get back to you soon.</div>
+          `;
+          chatMessages.appendChild(botMessageDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 600);
+      }
+    }
+ 
+
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    messageInput.focus();
+  </script>
+ 
+</body>
+</html>
