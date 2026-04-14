@@ -99,13 +99,22 @@
     nav ul li a:hover { opacity: .7; }
  
     .profile-identity {
-      padding: 14px 32px 0 280px;
+      padding: 14px 22px 0 22px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       min-height: 120px;
+      gap: 20px;
+    }
+
+    .profile-identity-spacer {
+      width: 258px;
+      flex-shrink: 0;
     }
  
+    .name-block {
+      flex-shrink: 0;
+    }
+
     .name-block h1 {
       font-size: 2.8rem;
       font-weight: 700;
@@ -130,9 +139,10 @@
       font-weight: 600;
       color: #F97316;
       text-align: center;
-      flex: 1;
-      margin-left: 32px;
       line-height: 1.5;
+      flex: 1;
+      max-width: calc((100% - 258px - 20px) * (1 / 2.4));
+      margin-left: auto;
     }
  
     .main-content {
@@ -189,8 +199,18 @@
       color: var(--orange-dark);
     }
     .card-hobbies ul li::before { content: "• "; font-weight: 700; }
- 
-    .card-websites { flex: 1; }
+
+    /* Websites + Contact side-by-side row */
+    .row-websites-contact {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .card-websites {
+      flex: 0 0 220px; /* fixed narrow column for the short list */
+    }
+
     .card-websites ol {
       list-style: decimal;
       padding-left: 24px;
@@ -203,6 +223,11 @@
     }
     .card-websites ol li a { color: var(--orange-dark); text-decoration: none; }
     .card-websites ol li a:hover { text-decoration: underline; }
+
+    /* Contact takes the remaining width */
+    .card-contact {
+      flex: 1;
+    }
  
     .contact-grid {
       display: grid;
@@ -225,6 +250,7 @@
       font-weight: 500;
       padding: 4px 0;
       color: var(--orange-dark);
+      text-align: center;
     }
     .contact-col ul li::before { content: "• "; }
     .contact-col ul li a { color: var(--orange-dark); text-decoration: none; }
@@ -235,7 +261,6 @@
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--orange);
-      margin-top: 12px;
     }
  
     /* Chat Button */
@@ -480,9 +505,10 @@
   </div>
  
   <div class="profile-identity">
+    <div class="profile-identity-spacer"></div>
     <div class="name-block">
       <h1>Yhvhan Suba</h1>
-      <p>Bachelor of Science in Information Technology INF242</p>
+      <p>Bachelor of Science in Information Technology ~ Aspiring Fullstack Dev.</p>
     </div>
     <div class="tagline-box">
       Building the future, one line of code at a time.
@@ -491,6 +517,7 @@
  
   <div class="main-content">
  
+    <!-- About + Hobbies row (unchanged) -->
     <div class="row">
       <div id="about" class="card card-about">
         <h2>About me</h2>
@@ -518,9 +545,10 @@
         </ul>
       </div>
     </div>
- 
-    <div class="row">
-      <div id="websites" class="card card-websites" style="flex:1;">
+
+    <!-- Favourite Websites + Contact side by side -->
+    <div class="row-websites-contact">
+      <div id="websites" class="card card-websites">
         <h2>Favourite Websites</h2>
         <ol>
           <li><a href="https://aniwatchtv.to" target="_blank">Aniwatchtv.to</a></li>
@@ -529,45 +557,44 @@
           <li><a href="https://pinterest.com" target="_blank">Pinterest</a></li>
         </ol>
       </div>
-    </div>
- 
-    <div id="contact" class="card">
-      <h2>Contact section</h2>
-      <div class="contact-grid">
-        <div class="contact-col">
-          <h3>Mobile Numbers</h3>
-          <ul>
-            <li>+992-924-8698</li>
-            <li>+969-565-5154</li>
-          </ul>
-        </div>
-        <div class="contact-col">
-          <h3>Emails</h3>
-          <ul>
-            <li><a href="mailto:subayhvhan@gmail.com">subayhvhan@gmail.com</a></li>
-            <li><a href="mailto:evhyyy7@gmail.com">evhyyy7@gmail.com</a></li>
-          </ul>
-        </div>
-        <div class="contact-col">
-          <h3>Professionals</h3>
-          <ul>
-            <li><a href="https://github.com/ItzEvhyx" target="_blank">ItzEvhyx - GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/yhvhan-suba-4b985339b/" target="_blank">Yhvhan Suba - LinkedIn</a></li>
-          </ul>
-        </div>
-        <div class="contact-col">
-          <h3>Social Media</h3>
-          <ul>
-            <li><a href="https://www.instagram.com/_vhxn_/" target="_blank">@____vhxn____ - Instagram</a></li>
-            <li><a href="https://www.facebook.com/Yvhyy.suba.75" target="_blank">Yhvhan Suba - Facebook</a></li>
-            <li><a href="https://www.tiktok.com/@evhyti" target="_blank">Evhy - TikTok</a></li>
-          </ul>
+
+      <div id="contact" class="card card-contact">
+        <h2>Contact section</h2>
+        <div class="contact-grid">
+          <div class="contact-col">
+            <h3>Mobile Numbers</h3>
+            <ul>
+              <li>+992-924-8698</li>
+              <li>+969-565-5154</li>
+            </ul>
+          </div>
+          <div class="contact-col">
+            <h3>Emails</h3>
+            <ul>
+              <li><a href="mailto:subayhvhan@gmail.com">subayhvhan@gmail.com</a></li>
+              <li><a href="mailto:evhyyy7@gmail.com">evhyyy7@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="contact-col">
+            <h3>Professionals</h3>
+            <ul>
+              <li><a href="https://github.com/ItzEvhyx" target="_blank">ItzEvhyx - GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/yhvhan-suba-4b985339b/" target="_blank">Yhvhan Suba - LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="contact-col">
+            <h3>Social Media</h3>
+            <ul>
+              <li><a href="https://www.instagram.com/_vhxn_/" target="_blank">@____vhxn____ - Instagram</a></li>
+              <li><a href="https://www.facebook.com/Yvhyy.suba.75" target="_blank">Yhvhan Suba - Facebook</a></li>
+              <li><a href="https://www.tiktok.com/@evhyti" target="_blank">Evhy - TikTok</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
  
     <div class="card card-footer">
-      <h2>Footer</h2>
       <p class="footer-tagline">"Functionality meets Creativity"</p>
     </div>
  
@@ -590,11 +617,9 @@
  
     chatBtn.addEventListener('click', async () => {
       if (chatboxOpen) {
-       
         chatModal.classList.remove('active');
         chatboxOpen = false;
       } else {
-      
         chatModal.classList.add('active');
         chatboxOpen = true;
        
@@ -633,7 +658,6 @@
         const message = messageInput.value.trim();
        
         if (message !== '') {
-         
           const userMessageDiv = document.createElement('div');
           userMessageDiv.className = 'message user';
           userMessageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
@@ -641,8 +665,7 @@
  
           messageInput.value = '';
           chatMessages.scrollTop = chatMessages.scrollHeight;
- 
-          
+
           setTimeout(() => {
             const botMessageDiv = document.createElement('div');
             botMessageDiv.className = 'message bot';
